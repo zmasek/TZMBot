@@ -2,10 +2,11 @@
 import datetime
 import logging
 import logging.config
+import os
 
 from discord.ext import commands
-
-from settings import LOGGING, TOKEN
+from settings import BASE_DIR, LOGGING, TOKEN
+from tortoise import Tortoise
 from utils import load_cogs
 
 logging.config.dictConfig(LOGGING)
@@ -21,6 +22,19 @@ async def on_ready():
         f"Took {datetime.datetime.now()-launch_time}, Time now {datetime.datetime.now()}"
     )
 
+
+@client.event
+async def on_connect():
+    await Tortoise.init(
+        db_url=f"sqlite://{os.path.join(BASE_DIR, '..', 'db.sqlite')}",
+        modules={'models': ['models']}
+    )
+    await Tortoise.generate_schemas()
+
+
+@client.event
+async def on_disconnect():
+    await Tortoise.close_connections()
 
 if __name__ == "__main__":
     load_cogs(client)

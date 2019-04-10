@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c311130921bba589a0ed24f96048c7f0f57bde9cd127b13cdcfd051101953cc6"
+            "sha256": "c10e323734b5c0ab5aaf42169dd9babbf3667818a86f5798580201e2e7a9ae60"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,12 +16,81 @@
         ]
     },
     "default": {
+        "aenum": {
+            "hashes": [
+                "sha256:3df9b84cce5dc9ed77c337079f97b66c44c0053eb87d6f4d46b888dc45801e38",
+                "sha256:7a77c205c4bc9d7fe9bd73b3193002d724aebf5909fa0d297534208953891ec8",
+                "sha256:a3208e4b28db3a7b232ff69b934aef2ea1bf27286d9978e1e597d46f490e4687"
+            ],
+            "version": "==2.1.2"
+        },
+        "aiocontextvars": {
+            "hashes": [
+                "sha256:885daf8261818767d8f7cbd79f9d4482d118f024b6586ef6e67980236a27bfa3",
+                "sha256:f027372dc48641f683c559f247bd84962becaacdc9ba711d583c3871fb5652aa"
+            ],
+            "version": "==0.2.2"
+        },
+        "aiosqlite": {
+            "hashes": [
+                "sha256:ad84fbd7516ca7065d799504fc41d6845c938e5306d1b7dd960caaeda12e22a9"
+            ],
+            "index": "pypi",
+            "version": "==0.10.0"
+        },
+        "ciso8601": {
+            "hashes": [
+                "sha256:01c44f93addee3cfd599ba6ae8d1b772ed642b89132e504c629feb57cc63a177"
+            ],
+            "version": "==2.1.1"
+        },
+        "contextvars": {
+            "hashes": [
+                "sha256:f38c908aaa59c14335eeea12abea5f443646216c4e29380d7bf34d2018e2c39e"
+            ],
+            "markers": "python_version < '3.7'",
+            "version": "==2.4"
+        },
         "discord-py": {
             "extras": [
                 "voice"
             ],
             "git": "https://github.com/Rapptz/discord.py",
-            "ref": "dea3ba5eb7c99f54c72b11f3e3f7b8f41649e779"
+            "ref": "d37839f38acd79d49bc19ae06d3067a455695e9b"
+        },
+        "immutables": {
+            "hashes": [
+                "sha256:10861f2a2b86139f0c91d5073392d76117f37e84f912dc47c943c23a64008cc7",
+                "sha256:3e23eeb4bc55d57b2a97bef4c1a2891bbb731050b4167c855545797d45e84e45",
+                "sha256:4373876879f147986808f71e6ca02380192a279e8b8d45832f6fed4e7f717562",
+                "sha256:46f9122da033fecf84d7f4c6257aec780f370b20f3ce6bc521702b63ee3d99f7",
+                "sha256:5104db6102e53702af45c6b0af36e45a80970123b11a80c14e0fce48444cdbe3",
+                "sha256:59274bcb631f4fdc9731e9a4a96d16d96b3a17e29fd5e46516518f38406f678f",
+                "sha256:65a9c624e50ca5c50464dbf432996b5c4f056a411bcff5690ef4cab59f913f99",
+                "sha256:b64e0672497b884d21170ca61c693da8488d77f043650efa7911378cbbad0f2c",
+                "sha256:b70655dba00742b033310933066a2202e1cfbbb0f63841b4597cd8787974b242",
+                "sha256:c3d8c238a6f9b60355578579563773348674b6da63c1a0d7394384ed341f3d41",
+                "sha256:cd66bcd11b6a1c1a80fb8d90e25870ff2d5c705ab5eb9666355a33d3fef6ac70",
+                "sha256:d59310fc4f97c1ff8c3660cb98032db266ac0c285a86ca7a512e8e84a95f44c9",
+                "sha256:d71d1c822498646143270580dd6f743bb31ab89ae0ded8b2307c356d3a00f1c0",
+                "sha256:f53da698b42db83cfb1f5073560838051430798c8d8e34a57a27031edbc3041d",
+                "sha256:f958ba15745e30d3a38e3c9fcead8496037135bb21c78c0f925c104abba3a6fa",
+                "sha256:ff95e2aa618eed1a0ef4479938f18f3522c89562b9bbb59d677597c0337569dd"
+            ],
+            "version": "==0.9"
+        },
+        "pypika": {
+            "hashes": [
+                "sha256:ae3e27cf459dfa3cdebef7abbcac737814310a9790b2813ab858a35a0cb9f1ee"
+            ],
+            "version": "==0.26.0"
+        },
+        "tortoise-orm": {
+            "hashes": [
+                "sha256:dd69fc8f980f16d6ba547c9fa1883b9e0fa0b16dcbb03f99bde3144ccb20a728"
+            ],
+            "index": "pypi",
+            "version": "==0.11.8"
         }
     },
     "develop": {

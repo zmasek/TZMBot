@@ -8,6 +8,8 @@ black = "*"
 
 [packages]
 discord-py = {git = "https://github.com/Rapptz/discord.py",ref = "rewrite",extras = ["voice"]}
+tortoise-orm = "*"
+aiosqlite = "*"
 
 [requires]
 python_version = "3.6"

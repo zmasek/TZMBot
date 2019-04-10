@@ -186,3 +186,4 @@ dmypy.json
 # Additional:
 debug.log
 .idea
+db.sqlite

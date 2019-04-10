@@ -64,13 +64,7 @@ class GlobalListeners(commands.Cog):
                 return await ctx.send("Unexpected error, traceback printed to console")
 
             return await self.err_reporting(ctx, exc)
-
-        response = self.client.error_dict[type(exc)]
-
-        if response is None:
-            return
-
-        await ctx.send(response.format(exc=exc, ctx=ctx))
+        await ctx.send(exc)
 
 
 def setup(client):

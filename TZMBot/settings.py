@@ -43,4 +43,5 @@ COGS: List[str] = [
     'cogs.devtools',
     'cogs.global_listeners',
     'cogs.loading',
+    'cogs.biography',
 ]
