@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+asynctest = "*"
 
 [packages]
 discord-py = {git = "https://github.com/Rapptz/discord.py",ref = "rewrite",extras = ["voice"]}
