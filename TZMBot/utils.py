@@ -1,6 +1,8 @@
 import logging
-from settings import COGS
+
 import discord
+
+from TZMBot.settings import COGS
 
 logger = logging.getLogger("__main__")
 

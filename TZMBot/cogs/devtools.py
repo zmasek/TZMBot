@@ -5,7 +5,7 @@ import traceback
 import discord
 import io
 from discord.ext import commands
-import settings
+from TZMBot import settings
 
 
 class DevTools(commands.Cog, name="Developer-Only Commands"):

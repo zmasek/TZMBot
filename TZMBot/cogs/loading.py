@@ -1,6 +1,6 @@
 from discord.ext import commands
 from importlib import reload
-import settings
+from TZMBot import settings
 
 
 class LoadUnloadReload(commands.Cog):

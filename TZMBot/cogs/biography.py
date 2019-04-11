@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from models import Biography
+from TZMBot.models import Biography
 
 
 class BiographyCog(commands.Cog):

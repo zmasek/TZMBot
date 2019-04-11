@@ -2,9 +2,8 @@ import sys
 import traceback
 
 import asyncio
-import utils
 from discord.ext import commands
-import settings
+from TZMBot import settings, utils
 
 
 class GlobalListeners(commands.Cog):

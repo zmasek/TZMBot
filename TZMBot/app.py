@@ -2,12 +2,12 @@
 import datetime
 import logging
 import logging.config
-import os
 
 from discord.ext import commands
-from settings import BASE_DIR, LOGGING, TOKEN
 from tortoise import Tortoise
-from utils import load_cogs
+
+from TZMBot.settings import DATABASE_URL, LOGGING, TOKEN
+from TZMBot.utils import load_cogs
 
 logging.config.dictConfig(LOGGING)
 logger = logging.getLogger(__name__)
@@ -26,8 +26,8 @@ async def on_ready():
 @client.event
 async def on_connect():
     await Tortoise.init(
-        db_url=f"sqlite://{os.path.join(BASE_DIR, '..', 'db.sqlite')}",
-        modules={'models': ['models']}
+        db_url=DATABASE_URL,
+        modules={'models': ['TZMBot.models']}
     )
     await Tortoise.generate_schemas()
 

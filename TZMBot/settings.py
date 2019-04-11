@@ -3,6 +3,7 @@ import os
 from typing import List, Tuple
 
 BASE_DIR: str = os.path.dirname(os.path.realpath(__file__))
+DATABASE_URL: str = f"sqlite://{os.path.join(BASE_DIR, '..', 'db.sqlite')}"
 
 LOGGING = {
     'version': 1,
