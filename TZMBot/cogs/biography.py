@@ -7,13 +7,16 @@ class BiographyCog(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    async def get_bio(self, pk):
+        bio = await Biography.filter(person=pk).first()
+        if bio is None:
+            return "No bio set."
+        return bio.content
+
     @commands.command()
     async def bio(self, ctx, member: discord.Member):
-        bio = await Biography.filter(person=member.id).first()
-        if bio is None:
-            await ctx.send("No bio set")
-        else:
-            await ctx.send(bio.content)
+        bio = await self.get_bio(member.id)
+        await ctx.send(bio)
 
     @commands.command()
     async def set_bio(self, ctx, *args):
