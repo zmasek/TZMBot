@@ -30,11 +30,13 @@ async def on_connect():
         modules={'models': ['TZMBot.models']}
     )
     await Tortoise.generate_schemas()
+    logger.info("Connected to the network.")
 
 
 @client.event
 async def on_disconnect():
     await Tortoise.close_connections()
+    logger.info("Disconnected from the network.")
 
 if __name__ == "__main__":
     load_cogs(client)
