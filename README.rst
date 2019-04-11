@@ -1,28 +1,41 @@
-BROKEN, DO NOT USE YET
+The easiest way to use this is running with Docker::
 
-Make sure you have pipenv installed (sudo pip install pipenv), then create the environment:
-pipenv --three
+    docker build -t tzmbot:0.0.1 .
+
+if needed::
+
+    docker stop tzmbot && docker rm tzmbot
+
+and then::
+
+    docker run --name tzmbot tzmbot:0.0.1
+
+For skipping Docker, make sure you have pipenv installed (sudo pip install pipenv), then make do with the provided Pipfile::
+
+    pipenv install
+
 It's enough, but here are the rest of the steps.
-pipenv install git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
-pipenv install black --dev
 
-Because you'll be running a lot of "pipenv run" commands, it's easier to add an alias in the .bashrc
-function pr() {
-    pipenv run "$@";
-}
-so you can just say pr whatever command. However, the following commands are full ones
+Because you'll be running a lot of "pipenv run" commands, it's easier to add an alias in the .bashrc in your home folder::
 
-To fix up the code run black
-pipenv run black TZMBot/
-To run the bot without the docker, cd into TZMBot and execute:
-pipenv run python run.py
+    function pr() {
+        pipenv run "$@";
+    }
 
-Dockerfile is added so it's enough to build it with:
-docker build -t tzmbot:0.0.1 .
-if needed:
-docker stop tzmbot && docker rm tzmbot
-and then:
-docker run --name tzmbot tzmbot:0.0.1
+With that alias you can just say pr whatever command. However, the commands in this file will be the full ones.
 
-# rewrite on_command_error so it avoids the dict
-# add bugsnag
+To fix up the code run black::
+
+    pipenv run black TZMBot/
+
+The provided profile file has the environment variables that the bot will use so it's best if you modify it, **never commit it**,  cd into the repo folder and source the file::
+
+    . profile
+
+To run the bot without Docker, execute::
+
+    pipenv run python TZMBot/app.py
+
+To execute tests::
+
+    pipenv run python -m tests
