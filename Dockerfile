@@ -13,8 +13,9 @@ RUN pipenv install --system
 ENV DISCORD_TOKEN=mytoken
 ENV DISCORD_ERROR_CHANNEL=mychannel
 ENV DISCORD_DEV_ID=myid
+ENV PYTHONPATH=/app
 
-COPY TZMBot/ /TZMBot
-WORKDIR /TZMBot
+COPY TZMBot/ /app/TZMBot
+WORKDIR /app/TZMBot
 
 CMD ["python", "app.py"]
