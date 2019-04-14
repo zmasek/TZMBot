@@ -1,48 +1,48 @@
+# -*- coding: utf-8 -*-
+
+"""Settings for TZMBot."""
 import os
 
 from typing import List, Tuple
 
+# The base dir is the root of the TZMBot application.
 BASE_DIR: str = os.path.dirname(os.path.realpath(__file__))
-DATABASE_URL: str = f"sqlite://{os.path.join(BASE_DIR, '..', 'db.sqlite')}"
+# Database URL is a step above, in the media folder that can be managed separately.
+DATABASE_URL: str = f"sqlite://{os.path.join(BASE_DIR, '..', 'media', 'db.sqlite')}"
 
+# Logging setup for the app loggers.
 LOGGING = {
-    'version': 1,
-    'formatters': {
-        'default': {
-            'format': '%(asctime)s - %(levelname)s - %(message)s',
-        }
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'level': 'INFO',
-            'formatter': 'default',
+    "version": 1,
+    "formatters": {"default": {"format": "%(asctime)s - %(levelname)s - %(message)s"}},
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "default",
         },
-        'file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'level': 'DEBUG',
-            'filename': os.path.join(BASE_DIR, '..', 'debug.log'),
-            'maxBytes': 1024 * 1024,
-            'backupCount': 3,
-            'formatter': 'default',
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "filename": os.path.join(BASE_DIR, "..", "debug.log"),
+            "maxBytes": 1024 * 1024,
+            "backupCount": 3,
+            "formatter": "default",
         },
     },
-    'loggers': {
-        '__main__': {
-            'level': 'DEBUG',
-            'handlers': ['console', 'file']
-        },
-    },
+    "loggers": {"__main__": {"level": "DEBUG", "handlers": ["console", "file"]}},
 }
 
-
+# A token associated with the discord bot.
 TOKEN: str = os.environ.get("DISCORD_TOKEN", "")
+# Developer member ids in a tuple that control if they can call the development commands.
 DEV_IDS: Tuple[int] = (int(os.environ.get("DISCORD_DEV_ID", 0)),)
+# If bot has any errors, output them in specific channels.
 ERROR_CHANNEL_ID: Tuple[int] = (int(os.environ.get("DISCORD_ERROR_CHANNEL", 0)),)
 
+# A list of cogs that are associated with the bot.
 COGS: List[str] = [
-    'cogs.devtools',
-    'cogs.global_listeners',
-    'cogs.loading',
-    'cogs.biography',
+    "cogs.devtools",
+    "cogs.global_listeners",
+    "cogs.loading",
+    "cogs.biography",
 ]

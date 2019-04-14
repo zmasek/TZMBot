@@ -16,6 +16,7 @@ ENV DISCORD_DEV_ID=myid
 ENV PYTHONPATH=/app
 
 COPY TZMBot/ /app/TZMBot
+RUN mkdir -p /app/media
 WORKDIR /app/TZMBot
 
 CMD ["python", "app.py"]

@@ -38,10 +38,12 @@ jobs:
           command: |
             ssh $SSH_USER@$SSH_HOST bash -c '
               cd ~/apps/TZMBot
+              git stash
               git pull
+              git stash pop
               docker stop tzmbot && docker rm tzmbot
               docker build -t tzmbot:0.0.1 .
-              docker run -d --name tzmbot -v $PWD/media:/tzmbot/media tzmbot:0.0.1'
+              docker run -d --name tzmbot -v $PWD/media:/app/media tzmbot:0.0.1'
 
 workflows:
   version: 2

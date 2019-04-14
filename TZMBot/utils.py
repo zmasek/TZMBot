@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+
+"""Helper methods for TZMBot."""
 import logging
 
 import discord
+from discord.ext.commands import Bot
+
 
 from TZMBot.settings import COGS
 
@@ -15,7 +20,14 @@ async def strikethrough(message: discord.Message, new_message: str = ""):
         pass
 
 
-def load_cogs(client):
+def load_cogs(client: Bot) -> None:
+    """Load extensions for a passed in bot.
+
+    Loads extensions defined in the settings. For each extension logs if it succeeded or not.
+
+    :param client: A client that the cogs will be loaded to.
+    :type client: Bot
+    """
     for cog in COGS:
         try:
             client.load_extension(cog)
