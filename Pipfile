@@ -6,6 +6,10 @@ verify_ssl = true
 [dev-packages]
 black = "*"
 asynctest = "*"
+coverage = "*"
+coveralls = "*"
+sphinx = "*"
+pre-commit = "*"
 
 [packages]
 discord-py = {git = "https://github.com/Rapptz/discord.py",ref = "rewrite",extras = ["voice"]}
