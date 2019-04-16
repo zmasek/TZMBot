@@ -1,3 +1,7 @@
+.. image:: https://coveralls.io/repos/github/zmasek/TZMBot/badge.svg?branch=master
+   :target: https://coveralls.io/github/zmasek/TZMBot?branch=master
+   :alt: Coverage Status
+
 The easiest way to use this is running with Docker::
 
     docker build -t tzmbot:0.0.1 .

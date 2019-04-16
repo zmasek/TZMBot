@@ -23,7 +23,8 @@ jobs:
             - "/usr/local/lib/python3.6/site-packages"
       - run:
           command: |
-            pipenv run python -m tests
+            pipenv run coverage run --source TZMBot/ tests
+            pipenv run coveralls
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -56,4 +57,3 @@ workflows:
           filters:
             branches:
               only: master
-
