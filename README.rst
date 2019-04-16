@@ -12,7 +12,7 @@ and then::
 
 For skipping Docker, make sure you have pipenv installed (sudo pip install pipenv), then make do with the provided Pipfile::
 
-    pipenv install
+    pipenv install --dev
 
 It's enough, but here are the rest of the steps.
 
@@ -27,6 +27,10 @@ With that alias you can just say pr whatever command. However, the commands in t
 To fix up the code run black::
 
     pipenv run black TZMBot/
+
+But it's better if you just install pre-commit hooks::
+
+    pipenv run pre-commit install
 
 The provided profile file has the environment variables that the bot will use so it's best if you modify it, **never commit it**,  cd into the repo folder and source the file::
 
