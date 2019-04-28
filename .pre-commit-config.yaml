@@ -11,13 +11,15 @@ repos:
     - id: check-case-conflict
     - id: check-symlinks
     - id: debug-statements
-    - id: end-of-file-fixer
     - id: trailing-whitespace
     - id: mixed-line-ending
+      args:
+        - --fix=lf
+    - id: end-of-file-fixer
 -   repo: https://github.com/asottile/seed-isort-config
     rev: v1.7.0
     hooks:
-    -   id: seed-isort-config
+    - id: seed-isort-config
 -   repo: https://github.com/pre-commit/mirrors-isort
     rev: v4.3.17
     hooks:
