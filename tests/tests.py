@@ -6,11 +6,12 @@ from unittest import mock
 
 import asynctest
 from tortoise import Tortoise
+
 from TZMBot.cogs.biography import BiographyCog
 from TZMBot.models import Biography
 from TZMBot.settings import BASE_DIR
 
-TEST_DB_PATH = os.path.join(BASE_DIR, '..', 'test_db.sqlite')
+TEST_DB_PATH = os.path.join(BASE_DIR, "..", "test_db.sqlite")
 TEST_DB_URL = f"sqlite://{TEST_DB_PATH}"
 
 

@@ -1,10 +1,11 @@
 import contextlib
+import io
 import textwrap
 import traceback
 
 import discord
-import io
 from discord.ext import commands
+
 from TZMBot import settings
 
 

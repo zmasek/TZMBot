@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """Models for TZMBot."""
-from tortoise.models import Model
 from tortoise import fields
+from tortoise.models import Model
 
 
 class Biography(Model):
@@ -11,6 +11,7 @@ class Biography(Model):
     Defines the biography for the member of the discord server. id is autoincremented, person
     represents the member discord id and the content is whatever biography text they might have.
     """
+
     id = fields.IntField(pk=True)
     person = fields.TextField(unique=True)
     content = fields.TextField(null=True)

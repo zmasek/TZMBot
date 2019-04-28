@@ -6,7 +6,6 @@ import logging
 import discord
 from discord.ext.commands import Bot
 
-
 from TZMBot.settings import COGS
 
 logger = logging.getLogger("__main__")

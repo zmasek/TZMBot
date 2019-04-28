@@ -1,5 +1,7 @@
-from discord.ext import commands
 from importlib import reload
+
+from discord.ext import commands
+
 from TZMBot import settings
 
 

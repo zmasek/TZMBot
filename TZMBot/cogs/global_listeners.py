@@ -1,8 +1,9 @@
+import asyncio
 import sys
 import traceback
 
-import asyncio
 from discord.ext import commands
+
 from TZMBot import settings, utils
 
 

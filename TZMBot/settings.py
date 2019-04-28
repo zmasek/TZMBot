@@ -2,7 +2,6 @@
 
 """Settings for TZMBot."""
 import os
-
 from typing import List, Tuple
 
 # The base dir is the root of the TZMBot application.

@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """Biography Cog for TZMBot discord.py bot."""
+from typing import Optional
+
 import discord
 from discord.ext import commands
+
 from TZMBot.models import Biography
-from typing import Optional
 
 
 class BiographyCog(commands.Cog):
@@ -37,7 +39,9 @@ class BiographyCog(commands.Cog):
         return bio.content
 
     @commands.command()
-    async def bio(self, ctx: commands.Context, member: Optional[discord.Member] = None) -> None:
+    async def bio(
+        self, ctx: commands.Context, member: Optional[discord.Member] = None
+    ) -> None:
         """A command to get a member biography.
 
         If no member is given, it will return the biography of a caller if it's set.
