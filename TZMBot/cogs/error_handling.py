@@ -7,9 +7,15 @@ from discord.ext import commands
 from TZMBot import settings, utils
 
 
-class GlobalListeners(commands.Cog):
+class ErrorHandling(commands.Cog):
     def __init__(self, client):
         self.client = client
+
+        self.error_channel = None
+        self.client.loop.create_task(self.async_setup())
+
+    async def async_setup(self):
+        self.error_channel = self.client.get_channel(settings.ERROR_CHANNEL_ID)
 
     async def err_reporting(self, ctx, err):
         report_confirmation = await ctx.send(
@@ -39,7 +45,7 @@ class GlobalListeners(commands.Cog):
             report = "".join(
                 traceback.format_exception(type(err), err, err.__traceback__)
             )
-            await self.client.get_channel(settings.ERROR_CHANNEL_ID).send(
+            await self.error_channel.send(
                 f"Exception raised in command {ctx.command} in cog {ctx.command.cog_name} "
                 f"by user {ctx.author}: ```py\n{report}\n```"
             )
@@ -64,8 +70,9 @@ class GlobalListeners(commands.Cog):
                 return await ctx.send("Unexpected error, traceback printed to console")
 
             return await self.err_reporting(ctx, exc)
+
         await ctx.send(exc)
 
 
 def setup(client):
-    client.add_cog(GlobalListeners(client))
+    client.add_cog(ErrorHandling(client))

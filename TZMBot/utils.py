@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """Helper methods for TZMBot."""
+import asyncio
 import logging
+from typing import Iterable, Union
 
 import discord
 from discord.ext.commands import Bot
@@ -12,11 +14,20 @@ logger = logging.getLogger("__main__")
 
 
 async def strikethrough(message: discord.Message, new_message: str = ""):
-    await message.edit(content=f"~~{message.content}~~ {new_message}")
+    await message.edit(content=f"~~{message.content}~~\n{new_message}")
     try:
         await message.clear_reactions()
     except discord.Forbidden:
         pass
+
+
+async def add_many_reactions(
+    message: discord.Message,
+    *reactions: Iterable[Union[str, discord.Emoji, discord.PartialEmoji]],
+):
+    for reaction in reactions:
+        await message.add_reaction(reaction)
+        await asyncio.sleep(0.25)
 
 
 def load_cogs(client: Bot) -> None:

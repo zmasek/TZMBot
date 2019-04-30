@@ -15,7 +15,7 @@ logging.config.dictConfig(LOGGING)
 logger = logging.getLogger(__name__)
 
 # Bot configuration options can be passed on the Bot init.
-client = commands.Bot(command_prefix="?")
+client = commands.Bot(command_prefix="!")
 
 
 @client.event

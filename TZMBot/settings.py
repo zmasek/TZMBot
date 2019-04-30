@@ -36,12 +36,27 @@ TOKEN: str = os.environ.get("DISCORD_TOKEN", "")
 # Developer member ids in a tuple that control if they can call the development commands.
 DEV_IDS: Tuple[int] = (int(os.environ.get("DISCORD_DEV_ID", 0)),)
 # If bot has any errors, output them in specific channels.
-ERROR_CHANNEL_ID: Tuple[int] = (int(os.environ.get("DISCORD_ERROR_CHANNEL", 0)),)
+ERROR_CHANNEL_ID: int = int(os.environ.get("DISCORD_ERROR_CHANNEL", 0))
+SAR_CHANNEL_ID = int(os.environ.get("DISCORD_SAR_CHANNEL", 0))
+SAR_MESSAGE_ID = int(os.environ.get("DISCORD_SAR_MESSAGE", 0))
+WELCOME_CHANNEL_ID = int(os.environ.get("DISCORD_WELCOME_CHANNEL", 0))
+
+SAR_CONFIG = {
+    "categories": {
+        "Numbers And Colours": {
+            "\ud83d\udd35": 568088714845356054,
+            "1\u20e3": 568088763670986812,
+        },
+        "True Statements": {"\u2705": 568088828242427906},
+    }
+}
 
 # A list of cogs that are associated with the bot.
 COGS: List[str] = [
-    "cogs.devtools",
-    "cogs.global_listeners",
-    "cogs.loading",
+    "cogs.activity",
     "cogs.biography",
+    "cogs.devtools",
+    "cogs.error_handling",
+    "cogs.loading",
+    "cogs.sar",
 ]
