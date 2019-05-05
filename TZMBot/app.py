@@ -8,8 +8,8 @@ import logging.config
 from discord.ext import commands
 from tortoise import Tortoise
 
-from TZMBot.settings import DATABASE_URL, LOGGING, TOKEN
-from TZMBot.utils import load_cogs
+from TZMBot.settings import DATABASE_URL, LOGGING, TOKEN, INIT_EXTENSIONS
+from TZMBot.utils import load_many_extensions
 
 logging.config.dictConfig(LOGGING)
 logger = logging.getLogger(__name__)
@@ -54,10 +54,10 @@ async def on_disconnect() -> None:
 
 
 if __name__ == "__main__":
-    """If the bot gets called through Python, it will load any extension cogs it has specified in
+    """If the bot gets called through Python, it will attempt to load any cog extensions it has specified in
     the settings, log it and run the bot application.
     """
-    load_cogs(client)
+    load_many_extensions(client, INIT_EXTENSIONS)
     launch_time = datetime.datetime.now()
     logger.info(f"Attempting to run bot at {launch_time}")
     client.run(TOKEN)

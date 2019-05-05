@@ -51,8 +51,8 @@ SAR_CONFIG = {
     }
 }
 
-# A list of cogs that are associated with the bot.
-COGS: List[str] = [
+# A list of extensions to be loaded on bot init.
+INIT_EXTENSIONS: List[str] = [
     "cogs.activity",
     "cogs.biography",
     "cogs.devtools",

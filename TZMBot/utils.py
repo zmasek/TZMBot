@@ -8,8 +8,6 @@ from typing import Iterable, Union
 import discord
 from discord.ext.commands import Bot
 
-from TZMBot.settings import COGS
-
 logger = logging.getLogger("__main__")
 
 
@@ -30,17 +28,19 @@ async def add_many_reactions(
         await asyncio.sleep(0.25)
 
 
-def load_cogs(client: Bot) -> None:
-    """Load extensions for a passed in bot.
+def load_many_extensions(client: Bot, extensions: Iterable[str]) -> None:
+    """Load passed in extensions on a passed in bot.
 
-    Loads extensions defined in the settings. For each extension logs if it succeeded or not.
+    Attempts to load each extension in extensions. For each, logs if it succeeded or not.
 
-    :param client: A client that the cogs will be loaded to.
+    :param client: A client that the extensions will be loaded to.
     :type client: Bot
+    :param extensions: An iterable of extensions to load
+    :type extensions: Iterable[str]
     """
-    for cog in COGS:
+    for extension in extensions:
         try:
-            client.load_extension(cog)
-            logger.debug(f"-\tCog extension {cog} loaded successfully")
+            client.load_extension(extension)
+            logger.debug(f"-\tCog extension {extension} loaded successfully")
         except Exception as e:
-            logger.error(f"-\tCog extension {cog} could not be loaded: {e}")
+            logger.error(f"-\tCog extension {extension} could not be loaded: {e}")
