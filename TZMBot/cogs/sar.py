@@ -26,7 +26,7 @@ class SelfAssignableRoles(commands.Cog):
         self.channel = self.client.get_channel(settings.SAR_CHANNEL_ID)
         if not isinstance(self.channel, discord.TextChannel):
             raise ValueError(
-                "sar_channel_ID config variable must correspond to a TextChannel"
+                "SAR_CHANNEL_ID config variable must correspond to a TextChannel"
             )
 
         self.message = await self.channel.fetch_message(settings.SAR_MESSAGE_ID)

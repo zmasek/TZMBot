@@ -7,6 +7,7 @@ import discord
 from discord.ext import commands
 
 from TZMBot import settings
+from TZMBot import utils
 
 
 class DevTools(commands.Cog, name="Developer-Only Commands"):
@@ -21,13 +22,14 @@ class DevTools(commands.Cog, name="Developer-Only Commands"):
     async def _eval(self, ctx, *, body: str):
         env = {
             "client": self.client,
-            "config": settings,
+            "settings": settings,
             "ctx": ctx,
             "channel": ctx.channel,
             "author": ctx.author,
             "guild": ctx.guild,
             "message": ctx.message,
             "__lr": self.last_eval_result,
+            "utils": utils,
         }
 
         env.update(globals())

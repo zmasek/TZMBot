@@ -44,7 +44,7 @@ WELCOME_CHANNEL_ID = int(os.environ.get("DISCORD_WELCOME_CHANNEL", 0))
 SAR_CONFIG = {
     "categories": {
         "Numbers And Colours": {
-            "\ud83d\udd35": 568088714845356054,
+            "\U0001f535": 568088714845356054,
             "1\u20e3": 568088763670986812,
         },
         "True Statements": {"\u2705": 568088828242427906},
