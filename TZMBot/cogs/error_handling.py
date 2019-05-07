@@ -71,6 +71,13 @@ class ErrorHandling(commands.Cog):
 
             return await self.err_reporting(ctx, exc)
 
+        if (
+            isinstance(exc, commands.CheckFailure)
+            or isinstance(exc, commands.CommandNotFound)
+            or isinstance(exc, commands.DisabledCommand)
+        ):
+            return
+
         await ctx.send(exc)
 
 

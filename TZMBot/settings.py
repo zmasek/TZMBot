@@ -60,3 +60,5 @@ INIT_EXTENSIONS: List[str] = [
     "cogs.loading",
     "cogs.sar",
 ]
+
+EMBED_COLOURS: List[int] = [0x3FA84A, 0x26662C, 0x55E663, 0x5AF269, 0x4BCC58]

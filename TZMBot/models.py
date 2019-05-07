@@ -24,4 +24,4 @@ class Biography(Model):
         :returns: A string of the discord member id.
         :rtype: str
         """
-        return self.person
+        return str(self.person)

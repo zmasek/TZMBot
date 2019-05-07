@@ -47,3 +47,4 @@ To run the bot without Docker, execute::
 To execute tests::
 
     pipenv run python -m tests
+

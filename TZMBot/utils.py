@@ -44,3 +44,9 @@ def load_many_extensions(client: Bot, extensions: Iterable[str]) -> None:
             logger.debug(f"-\tCog extension {extension} loaded successfully")
         except Exception as e:
             logger.error(f"-\tCog extension {extension} could not be loaded: {e}")
+
+
+def possessive_mention(user: discord.User):
+    if user.display_name.endswith("s"):
+        return f"{user.mention}'"
+    return f"{user.mention}'s"
